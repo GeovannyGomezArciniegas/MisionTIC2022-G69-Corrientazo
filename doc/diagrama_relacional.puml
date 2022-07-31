@@ -1,0 +1,41 @@
+@startuml
+
+Entity Corrientazo {
+Integer precio
+}
+Entity OpcionSopa {
+    - String nombre
+}
+Entity OpcionPrincipio {
+    - String nombre
+}
+Entity OpcionCarne {
+    - String nombre
+}
+Entity OpcionEnsalada {
+    - String nombre
+}
+Entity OpcionJugo {
+    - String nombre
+}
+
+Entity Adicional {
+    String nombre
+    Integer precio
+}
+
+
+Entity Pedido {
+    + Integer calcularValorPedido()
+}
+Entity Mesa {
+    - String numero
+    + Integer calcularValorMesa()
+    + Interger pagar(Interger efectivo)
+}
+Entity EstadoPedido {
+    SIN_ENTREGAR
+    PENDIENTE_COBRAR
+}
+
+@enduml
