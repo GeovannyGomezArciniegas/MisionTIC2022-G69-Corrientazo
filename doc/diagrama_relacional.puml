@@ -1,41 +1,81 @@
-@startuml
+@startuml "Diagrama Relacional"
 
-Entity Corrientazo {
-Integer precio
+Entity Mesa {
+    id: Integer <<PK>>
+    --
+    numero: varchar(10) <<NN>> <<UQ>>
 }
-Entity OpcionSopa {
-    - String nombre
-}
-Entity OpcionPrincipio {
-    - String nombre
-}
-Entity OpcionCarne {
-    - String nombre
-}
-Entity OpcionEnsalada {
-    - String nombre
-}
-Entity OpcionJugo {
-    - String nombre
+
+Entity Pedido {
+    id: Integer <<PK>> 
+    --
+    cliente: varchar(100) <<NN>>
+    --
+    estado: varchar(100) <<NN>>
+    --
+    id_mesa: Integer <<FK>> <<NN>>
 }
 
 Entity Adicional {
-    String nombre
-    Integer precio
+    id: Integer <<pk>>
+    --
+    nombre: varchar(100) <<NN>> <<UQ>>
+    --
+    precio: Integer <<NN>>
 }
 
+entity PedidoAdicional {
+    id_pedido: Integer <<PK>> <<FK>>
+    id_adicional: Integer <<PK>> <<FK>>
+}
 
-Entity Pedido {
-    + Integer calcularValorPedido()
+Entity Corrientazo {
+id_pedido: Integer <<PK>> <<FK>>
+precio Integer
+id_Sopa: Integer <<NN>>
+id_Principio: Integer <<NN>>
+id_Carne: Integer <<NN>>
+id_Ensalada: Integer 
+id_Jugo: Integer <<NN>>
 }
-Entity Mesa {
-    - String numero
-    + Integer calcularValorMesa()
-    + Interger pagar(Interger efectivo)
+
+Entity OpcionSopa {
+    id: Integer <<PK>>
+    --
+    nombre: varchar(100) <<NN>>
 }
-Entity EstadoPedido {
-    SIN_ENTREGAR
-    PENDIENTE_COBRAR
+Entity OpcionPrincipio {
+    id: Integer <<PK>>
+    nombre: varchar(100) <<NN>>
 }
+Entity OpcionCarne {
+    id: Integer <<PK>>
+    --
+    nombre: varchar(100) <<NN>>
+}
+Entity OpcionEnsalada {
+    id: Integer <<PK>>
+    --
+    nombre: varchar(100) <<NN>>
+}
+Entity OpcionJugo {
+    id: Integer <<PK>>
+    --
+    nombre: varchar(100) <<NN>>
+}
+
+Mesa ||--o{ Pedido
+Pedido ||-left-|{ PedidoAdicional
+Adicional ||--|{ PedidoAdicional
+
+Pedido ||-right-|| Corrientazo
+
+Corrientazo }|--|| OpcionSopa
+Corrientazo }|--|| OpcionPrincipio
+Corrientazo }|--|| OpcionCarne
+Corrientazo }|--o| OpcionEnsalada
+Corrientazo }|--|| OpcionJugo
+
+
 
 @enduml
