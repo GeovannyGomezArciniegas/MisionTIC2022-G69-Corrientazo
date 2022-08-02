@@ -64,7 +64,7 @@ CREATE TABLE Corrientazo (
     id_principio INTEGER,
     id_carne INTEGER,
     id_ensalada INTEGER,
-    id_jugo INTEGER
+    id_jugo INTEGER,
     CONSTRAINT Corrientazo_id_pedido_FK FOREIGN KEY(id_pedido) REFERENCES Pedido(id),
     CONSTRAINT Corrientazo_id_sopa_pedido_FK FOREIGN KEY(id_sopa) REFERENCES OpcionSopa(id),
     CONSTRAINT Corrientazo_id_principio_pedido_FK FOREIGN KEY(id_principio) REFERENCES OpcionPrincipio(id),
