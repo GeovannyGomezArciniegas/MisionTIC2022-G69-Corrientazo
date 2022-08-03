@@ -43,8 +43,11 @@ public final class App {
         anderson.agregarAdicionales(new Adicional("Chicharrón", 3_000));
         anderson.agregarAdicionales(new Adicional("Huevo", 800));
 
+        anderson.entregarPedido();
+        cristian.entregarPedido();
+
         System.out.printf("Total de la mesa: $ %,d. %n", mesa.calcularValor());
-        var efectivo = 27_900;
+        var efectivo = 27_700;
         try {
             System.out.printf("Se paga con $ %,d, y le devuelven $ %,d %n",
                 efectivo, mesa.pagar(efectivo));
