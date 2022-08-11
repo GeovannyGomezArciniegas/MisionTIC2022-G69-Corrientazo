@@ -74,6 +74,12 @@ public class Corrientazo {
         this.jugo = jugo;
     }
 
+    @Override
+    public String toString() {
+        return "Corrientazo [precio = " + precio + ", sopa = " + sopa + ",  principio = " + principio + ", carne = " + carne
+                + ", ensalada = " + ensalada + ", jugo = " + jugo + "]";
+    }
+
     
 }
 
