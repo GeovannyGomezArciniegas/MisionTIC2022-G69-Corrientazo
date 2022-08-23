@@ -1,5 +1,6 @@
 package co.edu.utp.misiontic.geovanny.vista;
 
+import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -14,7 +15,7 @@ public class MenuPrincipal {
         this.controlador = controlador;
     }
 
-    public void iniciarAplicacion() {
+    public void iniciarAplicacion() throws SQLException {
         var enMenu = true;
         do {
             try {
@@ -105,13 +106,13 @@ public class MenuPrincipal {
         }
     }
 
-    private void pagosDeMesa() {
+    private void pagosDeMesa() throws SQLException {
         var mesa = controlador.consultarMesa();
 
         controlador.pagarCuenta(mesa);
     }
 
-    private void abrirMenuGestionPedidos() {
+    private void abrirMenuGestionPedidos() throws SQLException {
         var mesa = controlador.consultarMesa();
         var salida = false;
         while (!salida) {

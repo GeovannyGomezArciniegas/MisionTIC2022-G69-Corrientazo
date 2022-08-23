@@ -1,5 +1,6 @@
 package co.edu.utp.misiontic.geovanny.vista;
 
+import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
@@ -30,7 +31,7 @@ public class MesaVista {
         mesas.forEach(System.out::println);
     }
 
-    public Mesa consultarMesa() {
+    public Mesa consultarMesa() throws SQLException {
         System.out.println(".: CONSULTANDO MESAS :.");
 
         //System.out.println("Las mesas existentes son:"); **esta porcion de codigo sobra
@@ -60,13 +61,11 @@ public class MesaVista {
         } while(respuesta == null);
 
         return respuesta;
-
     }
 
-    public Pedido seleccionePedido(Mesa mesa) {
+    public Pedido seleccionePedido(List<Pedido> opciones) {
         System.out.println(".: ELIJA EL PEDIDO :.");
 
-        var opciones = mesa.getPedidos();
         Pedido respuesta = null;
 
         do {
@@ -114,8 +113,7 @@ public class MesaVista {
         System.out.println(mensage);
     }
 
-    public void mostrarPedidos(Mesa mesa) {
-        var opciones = mesa.getPedidos();
+    public void mostrarPedidos(List<Pedido> opciones) {
         System.out.println("Los pedidos son:");
             for (int i = 0; i < opciones.size(); i++) {
                 System.out.printf("%d -> %s %n", (i+1), opciones.get(i));

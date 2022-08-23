@@ -1,5 +1,6 @@
 package co.edu.utp.misiontic.geovanny.vista;
 
+import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -24,7 +25,7 @@ public class PedidoVista {
 
     }
 
-    public Pedido pedirInformacionPedido() {
+    public Pedido pedirInformacionPedido() throws SQLException {
         System.out.println(".: INGRESANDO EL PEDIDO :.");
 
         System.out.print("Ingrese nombre (Descripción) del cliente: ");
@@ -42,7 +43,7 @@ public class PedidoVista {
         System.out.println(mensaje);
     }
 
-    private OpcionSopa elegirOpcionSopa() {
+    private OpcionSopa elegirOpcionSopa() throws SQLException {
         System.out.println(".: ELIJA LA SOPA :.");
 
         //System.out.println("Las mesas existentes son:"); **esta porcion de codigo sobra
@@ -75,7 +76,7 @@ public class PedidoVista {
 
     }
 
-    private OpcionPrincipio elegirOpcionPrincipio() {
+    private OpcionPrincipio elegirOpcionPrincipio() throws SQLException {
         System.out.println(".: ELIJA PRINCIPIO :.");
 
         //System.out.println("Las mesas existentes son:"); **esta porcion de codigo sobra
@@ -108,7 +109,7 @@ public class PedidoVista {
 
     }
 
-    private OpcionCarne elegirOpcionCarne() {
+    private OpcionCarne elegirOpcionCarne() throws SQLException {
         System.out.println(".: ELIJA LA CARNE :.");
 
         //System.out.println("Las mesas existentes son:"); **esta porcion de codigo sobra
@@ -141,7 +142,7 @@ public class PedidoVista {
 
     }
 
-    private OpcionEnsalada elegirOpcionEnsalada() {
+    private OpcionEnsalada elegirOpcionEnsalada() throws SQLException {
         System.out.println(".: ELIJA ENSALADA :.");
 
         //System.out.println("Las mesas existentes son:"); **esta porcion de codigo sobra
@@ -178,7 +179,7 @@ public class PedidoVista {
 
     }
 
-    private OpcionJugo elegirOpcionJugo() {
+    private OpcionJugo elegirOpcionJugo() throws SQLException {
         System.out.println(".: ELIJA JUGO :.");
 
         //System.out.println("Las mesas existentes son:"); **esta porcion de codigo sobra

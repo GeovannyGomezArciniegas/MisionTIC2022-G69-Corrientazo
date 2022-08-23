@@ -7,6 +7,7 @@ public class Corrientazo {
     private OpcionCarne carne;
     private OpcionEnsalada ensalada;
     private OpcionJugo jugo;
+    private Integer id;
 
     // Se crean dos constructores
     // 1 constructor sin ensalada
@@ -30,12 +31,20 @@ public class Corrientazo {
         this.jugo = jugo;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
     public Integer getPrecio() {
         return precio;
     }
 
     public OpcionSopa getSopa() {
         return sopa;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public void setSopa(OpcionSopa sopa) {
